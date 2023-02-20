@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { PacesInterface } from '../../paces-interface';
 import { PacesServiceService } from '../../paces-service.service';
 
@@ -31,6 +31,9 @@ export class DetailplacePage implements OnInit {
     // this.router.navigateByUrl('/places/tabs/discover')
     this.navCtrl.navigateBack('/places/tabs/discover')
 
+
   }
+
+
 
 }
