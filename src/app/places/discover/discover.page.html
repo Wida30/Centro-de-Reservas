@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button id="main-content"></ion-menu-button>
+      <ion-menu-button id="main-content" color="primary"></ion-menu-button>
     </ion-buttons>
-    <ion-title>ALOJAMIENTOS</ion-title>
+    <ion-title color="primary">ALOJAMIENTOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
 
-  <ion-segment value="todos" (ionChange)=" onFilterUpdate($event)" color="tertiary">
+  <ion-segment value="todos" (ionChange)=" onFilterUpdate($event)"  >
     <ion-segment-button value="todos"> Todos </ion-segment-button>
     <ion-segment-button value="disponible"> Disponibles </ion-segment-button>
   </ion-segment>
@@ -33,7 +33,8 @@
             <ion-button
             fill="clear"
             color="primary"
-                        [routerLink]=" ['/', 'places', 'tabs', 'discover', loadedPlaces[0].id]"> Mas </ion-button>
+            [routerLink]=" ['/', 'places', 'tabs', 'discover', loadedPlaces[0].id]"> Mas
+          </ion-button>
           </div>
 
         </ion-card>

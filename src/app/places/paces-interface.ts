@@ -4,4 +4,6 @@ export interface PacesInterface {
   description?: string;
   imagen?: string;
   price?: number;
+  availableFrom?: Date;
+  availableTo?: Date;
 }

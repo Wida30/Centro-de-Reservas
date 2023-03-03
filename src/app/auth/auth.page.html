@@ -1,31 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>auth</ion-title>
+    <ion-title>{{isLogin ? 'Registarse' : 'Entrar'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-row >
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
 
+  <ion-row>
     <ion-col size="12" sizeSm="8" offsetSm="2" class="ion-tex-center">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating"> E-mail</ion-label>
+          <ion-input
+          type="email"
+          ngModel
+          name="email"
+          required="true"
+          #emailCrtl ='ngModel'></ion-input>
+        </ion-item>
+       <ion-item *ngIf="!emailCrtl.valid && emailCrtl.touched" lines="none">
+        <p >Insertar un email correcto</p>
+       </ion-item>
 
-  <ion-item>
-    <ion-label position="floating"> email</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating" > contraseña</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-
-  <ion-button class="ion-padding" color="primary" (click)="login()"> registrate
-    </ion-button>
-
-  </ion-col>
+        <ion-item>
+          <ion-label position="floating"> Contraseña</ion-label>
+          <ion-input
+          type="password"
+          ngModel
+          name="password"
+          required="true"
+          minlength="6"
+          #passwordCrt="ngModel"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!passwordCrt.valid && passwordCrt.touched" lines="none" >
+          <p >seis carácteres</p>
+         </ion-item>
+      </ion-list>
+    </ion-col>
 
   </ion-row>
 
+  <ion-row>
+    <ion-col  sizeSm="6" offsetSm="3" class="ion-tex-center" >
+
+      <ion-button
+      type="button"
+      expand="full"
+      color="primary"
+      fill="clear"
+      (click) = cambioModo()> {{isLogin ? 'Registarse' : 'Entrar'}} </ion-button>
+      <ion-button
+      type="submit"
+      expand="block"
+      color="primary"
+      (click)="login()"
+      [disabled]="!f.valid"> Confirmar </ion-button>
+
+
+    </ion-col>
+  </ion-row>
+</form>
 
 </ion-content>

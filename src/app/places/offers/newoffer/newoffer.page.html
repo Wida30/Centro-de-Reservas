@@ -1,12 +1,87 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-    <ion-back-button defaultHref="/places/tabs/offers"></ion-back-button>
-  </ion-buttons>
+      <ion-back-button defaultHref="/places/tabs/offers"></ion-back-button>
+    </ion-buttons>
     <ion-title>Nuevo alojamiento</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCreateAlj()">
+        <ion-icon name="checkbox" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> Titulo </ion-label>
+            <ion-input
+              type="text"
+              autocomplete
+              autocorrect
+              formControlName="title"
+            >
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> Descripción </ion-label>
+            <ion-textarea rows="3" formControlName="description">
+            </ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating"> Precio </ion-label>
+            <ion-input type="number" formControlName="price"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-datetime
+              presentation="date"
+              color="primary"
+              min="2023-01-01"
+              max="2026-09-01"
+              formControlName="dateFrom"
+            >
+              <span slot="title">Disponibilidad desde</span></ion-datetime
+            >
+          </ion-item>
+        </ion-col>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-datetime
+              presentation="date"
+              min="2023-01-01"
+              max="2026-09-01"
+              formControlName="dateTo"
+            >
+              <span slot="title">Disponibilidad hasta</span></ion-datetime
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <app-pick-location></app-pick-location>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

@@ -9,22 +9,19 @@ import { PacesInterface } from '../paces-interface';
   styleUrls: ['./discover.page.scss'],
 })
 export class DiscoverPage implements OnInit {
+
   loadedPlaces!: PacesInterface[];
+
 
   constructor( private placesService : PacesServiceService) { }
 
   ngOnInit() {
 
     this.loadedPlaces = this.placesService.getPlaces()
-
-
-
   }
 
   onFilterUpdate(event:any){
     console.log(event.detail);
-
-
   }
 
 }

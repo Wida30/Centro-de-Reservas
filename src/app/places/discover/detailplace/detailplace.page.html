@@ -8,26 +8,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
+  <ion-row>
+    <ion-col  class="ion-padding">
+      <h4>
+        {{place.price}} euros/noche
+      </h4>
 
-  <ion-img [src]="place.imagen" class="ion-padding"></ion-img>
-
-  <ion-row >
- <ion-col size="8" offset="2">
-  {{place.description}}
- </ion-col>
-
-  </ion-row >
-  <ion-row  >
-    <ion-col size="6" offset="4">
-     {{place.price}}  euros/noche
     </ion-col>
+  </ion-row>
 
-     </ion-row>
+  <ion-img [src]="place.imagen" ></ion-img>
+
+  <ion-row>
+    <ion-col sizeMd="8" offsetMd="2">
+
+      <p>{{place.description}}</p>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col sizeMd="8" offsetMd="2">
+
+  <ion-button  class="centrado"  expand="block" (click)="onBookPlace()" class="ion-margin">Reservar</ion-button>
+
+    </ion-col>
+  </ion-row>
 
 
-  <!-- <ion-button color="primary" margin (click)="onBookPlace()">Reservar</ion-button>  -->
 
+  <!--
   <ion-button class="ion-padding" color="primary" margin id="open-modal">Reservar</ion-button>
   <ion-modal #modal trigger="open-modal" >
     <ng-template>
@@ -36,6 +47,7 @@
           <ion-title>Reservado</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="modal.dismiss()">cerrar</ion-button>
+
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
@@ -44,6 +56,6 @@
         <h3>{{place.title}}</h3>
       </ion-content>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
 
 </ion-content>
