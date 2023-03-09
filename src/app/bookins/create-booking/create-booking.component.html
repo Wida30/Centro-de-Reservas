@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>
       {{selectedPlace.title}}
     </ion-title>
@@ -13,7 +13,6 @@
 
 <ion-content class="ion-padding ion-text-center">
   <form (ngSubmit)="onBookPlace()" #f="ngForm">
-
     <ion-grid>
       <ion-row>
         <ion-col sizeMd="6" offsetMd="3">
@@ -38,7 +37,7 @@
             <ion-col sizeMd="6" offsetMd="3">
               <ion-item>
                 <ion-label position="floating"> Personas </ion-label>
-                <ion-select [ngModel]='"2"' name="guest-number">
+                <ion-select [ngModel]='"2"' name="guests">
                   <ion-select-option value="1">1</ion-select-option>
                   <ion-select-option value="2">2</ion-select-option>
                   <ion-select-option value="3">3</ion-select-option>

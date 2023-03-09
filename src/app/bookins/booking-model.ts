@@ -4,6 +4,12 @@ export interface BookingModel {
   placeId: string;
   userId:string;
   placeTitle: string;
-  guest: number;
+  placeImage: string;
+  firstName: string;
+  lastName: string;
+  guests: number;
+  dateFrom: Date;
+  dateTo: Date
+
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PacesServiceService } from '../../paces-service.service';
 
 @Component({
   selector: 'app-newoffer',
@@ -10,7 +12,8 @@ export class NewofferPage implements OnInit {
   form!: FormGroup
 
 
-  constructor() { }
+  constructor(private placeService: PacesServiceService,
+      private router: Router) { }
 
   ngOnInit() {
 
@@ -41,6 +44,17 @@ export class NewofferPage implements OnInit {
   onCreateAlj(){
 
     console.log(this.form);
+
+    this.placeService.addPlace(
+      this.form.value.title,
+      this.form.value.description,
+      +this.form.value.price,
+      new Date (this.form.value.dateFrom),
+      new Date (this.form.value.dateTo)
+    )
+    this.form.reset()
+    this.router.navigate(['/places/tabs/offers'])
+    console.log('lugar añadido')
 
   }
 

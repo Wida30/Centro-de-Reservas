@@ -45,7 +45,7 @@ export class CreateBookingComponent implements OnInit {
     // }
   }
 
-  //en dismiss (cerrar el modal) se pasan los valores (null en caso de cancelar, y "mesaje de reserva" en el caso de reservar), el rol ( 'cancel " y confirm" en este caso o cualquier otro que queramos) y un id del modal a cerrar en caso de tener varios
+  //en dismiss (cerrar el modal) se pasan los valores (null en caso de cancelar, y "mesaje de reserva" o un objeto con los datos en el caso de reservar), el rol ( 'cancel " y confirm" en este caso o cualquier otro que queramos) y un id del modal a cerrar en caso de tener varios
 
   onCancelReservation(){
     this.modalCtrl.dismiss(null, 'cancel')
@@ -61,9 +61,9 @@ export class CreateBookingComponent implements OnInit {
         bookingData: {
           name: this.form.value['name'],
           lastName: this.form.value['last-name'],
-          guests: this.form.value['guests'],
-          startDate: this.form.value['date-from'],
-          endDate: this.form.value['date-to']
+          guests: +this.form.value['guests'],
+          startDate: new Date (this.form.value['date-from']),
+          endDate: new Date (this.form.value['date-to'])
         }
       },
       'confirm'

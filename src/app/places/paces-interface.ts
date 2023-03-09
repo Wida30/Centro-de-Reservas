@@ -6,4 +6,6 @@ export interface PacesInterface {
   price?: number;
   availableFrom?: Date;
   availableTo?: Date;
+  userId?: string;
+
 }

@@ -1,17 +1,27 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button id="main-content"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>RESERVAS</ion-title>
+    <ion-title>TUS RESERVAS</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
+
+
+
+
   <ion-grid>
-    <ion-row>
+
+    <ion-row *ngIf="!bookings.length">
+      <ion-col>
+        <h1> No tienes ninguna reserva </h1>
+      </ion-col>
+    </ion-row>
+    <ion-row  *ngIf="bookings.length">
       <ion-col size-md="6" offset-md="3">
         <ion-list>
 
@@ -20,7 +30,9 @@
             <ion-item>
               <ion-label>
                 <h5>{{book.placeTitle}}</h5>
-                <p> Pax: {{book.guest}}</p>
+                <h6> Pax: {{book.guests}}</h6>
+                <p>{{book.dateFrom | date:"dd-MM-yyyy"}}</p>
+                <p>{{book.dateTo | date:"dd-MM-yyyy"}}</p>
               </ion-label>
 
             </ion-item>

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthserviceService {
 
   private userUath = true;
+  public userID = 'uno'
 
   get userAuth(){
     return this.userUath

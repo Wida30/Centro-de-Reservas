@@ -20,6 +20,12 @@ export class OffersPage implements OnInit {
     this.loadedPlaces = this.placesService.getPlaces()
   }
 
+  ionViewWillEnter(){
+
+    this.loadedPlaces = this.placesService.getPlaces()
+
+  }
+
   onEditOffer(Id: string, sliding: IonItemSliding){
     sliding.close();
     this.router.navigate(['/', 'places', 'tabs','offers', 'edit', Id])

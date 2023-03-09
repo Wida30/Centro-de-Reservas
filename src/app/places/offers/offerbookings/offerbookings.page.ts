@@ -17,6 +17,8 @@ export class OfferbookingsPage implements OnInit {
     private navCtrl:NavController,
     private placeService: PacesServiceService ) { }
 
+
+
   ngOnInit() {
 
     this.route.paramMap.subscribe(paramMap => {
@@ -26,6 +28,9 @@ export class OfferbookingsPage implements OnInit {
       }
         this.place = this.placeService.getplace(paramMap.get('placeId')!)
     });
+
+
+
   }
 
 }

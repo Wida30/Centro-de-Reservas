@@ -5,6 +5,7 @@ import {
   ModalController,
   NavController,
 } from '@ionic/angular';
+import { BookingServiceService } from 'src/app/bookins/booking-service.service';
 import { CreateBookingComponent } from 'src/app/bookins/create-booking/create-booking.component';
 import { PacesInterface } from '../../paces-interface';
 import { PacesServiceService } from '../../paces-service.service';
@@ -23,7 +24,8 @@ export class DetailplacePage implements OnInit {
     private navCtrl: NavController,
     private placeService: PacesServiceService,
     private modalCrtl: ModalController,
-    private actionSheetCrt: ActionSheetController
+    private actionSheetCrt: ActionSheetController,
+    private bookingService: BookingServiceService
   ) {}
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class DetailplacePage implements OnInit {
         this.navCtrl.navigateBack('/places/tabs/discover');
         return;
       }
-      this.place = this.placeService.getplace(paramMap.get('placeId')!);
+      this.place = this.placeService.getplace(paramMap.get('placeId')!)
     });
   }
 
@@ -85,7 +87,21 @@ export class DetailplacePage implements OnInit {
       .then((resulData) => {
         console.log(resulData);
         if (resulData.role === 'confirm') {
-          console.log('reservado!!');
+          const data = resulData.data.bookingData;
+
+          this.bookingService.addBooking(
+            this.place.id!,
+            this.place.title!,
+            this.place.imagen!,
+            data.name,
+            data.lastname,
+            data.guest,
+            data.startDate,
+            data.endDay
+
+          )
+          this.navCtrl.navigateBack('/bookins');
+          console.log('reservado!! con estos datos ' + JSON.stringify(data) );
         }
       });
   }
