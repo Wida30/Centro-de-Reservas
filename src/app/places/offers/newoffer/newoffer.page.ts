@@ -53,8 +53,18 @@ export class NewofferPage implements OnInit {
       new Date (this.form.value.dateTo)
     )
     this.form.reset()
-    this.router.navigate(['/places/tabs/offers'])
-    console.log('lugar añadido')
+      this.router.navigate(['/places/tabs/offers'])
+      console.log('lugar añadido')
+
+
+
+    // .subscribe(()=>{
+    //   this.form.reset()
+    //   this.router.navigate(['/places/tabs/offers'])
+    //   console.log('lugar añadido')
+
+    // })
+
 
   }
 

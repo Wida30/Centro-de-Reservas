@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class OffersPage implements OnInit {
   loadedPlaces!: PacesInterface[];
 
+
   constructor(private placesService: PacesServiceService,
     private router: Router) { }
 
@@ -22,7 +23,8 @@ export class OffersPage implements OnInit {
 
   ionViewWillEnter(){
 
-    this.loadedPlaces = this.placesService.getPlaces()
+    this.loadedPlaces =  this.placesService.getPlaces()
+    //  this.placesService.fetchPlaces().subscribe()
 
   }
 
